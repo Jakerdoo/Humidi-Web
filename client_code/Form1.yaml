@@ -1,0 +1,17 @@
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: form:FileDragAndDrop
+    properties: {}
+    name: file_drag_and_drop_1
+    layout_properties: {grid_position: 'EBZAQY,ZPXYCF'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}

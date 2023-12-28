@@ -1,0 +1,52 @@
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: "\n<div class=\"dragzone\" style=\"border: solid #2196f3;\"\
+      \ anvil-slot-repeat=\"default\" ondrop=\"dropHandler(event);\" ondragover=\"\
+      dragOverHandler(event);\"></div>\n\n<script>\nfunction dragOverHandler(ev) {\n\
+      \  // Prevent default drag behavior (prevent file from being opened).\n  ev.preventDefault();\n\
+      }\n\n\nfunction getFileContents(ev, reader, file) {\n  // Read a file and call\
+      \ an Anvil method.\n  reader.onloadend = function() {\n    anvil.call(ev.target,\
+      \ \"drag_drop_upload\", file.type, reader.result, file.name);\n  }        \n\
+      \  reader.readAsBinaryString(file);\n}\n\n\nfunction dropHandler(ev) {\n  //\
+      \ Define what happens when a file is dropped.\n  ev.preventDefault();\n\n  var\
+      \ reader = new FileReader();\n  // Thanks to browser differences, we need an\
+      \ if-else...\n  if (ev.dataTransfer.items) {\n    // Use DataTransferItemList\
+      \ interface to access the file(s)\n    for (var i = 0; i < ev.dataTransfer.items.length;\
+      \ i++) {\n      // If dropped items aren't files, reject them\n      if (ev.dataTransfer.items[i].kind\
+      \ === 'file') {\n        var file = ev.dataTransfer.items[i].getAsFile();\n\
+      \        // Call an Anvil method with the file contents\n        getFileContents(ev,\
+      \ reader, file);\n      }\n    }\n    ev.dataTransfer.items.clear();\n  } else\
+      \ {\n    // Use DataTransfer interface to access the file(s)\n    for (var i\
+      \ = 0; i < ev.dataTransfer.files.length; i++) {\n        var file = ev.dataTransfer.files[i].getAsFile();\n\
+      \        // Call an Anvil method with the file contents\n        getFileContents(ev,\
+      \ reader, file);\n    }\n    ev.dataTransfer.clearData();\n  } \n}\n</script>"}
+components:
+- type: FileLoader
+  properties:
+    role: null
+    show_state: false
+    align: center
+    tooltip: ''
+    border: ''
+    enabled: true
+    files: []
+    foreground: ''
+    visible: true
+    text: Upload
+    font_size: null
+    font: ''
+    spacing_above: small
+    icon_align: left
+    spacing_below: small
+    italic: false
+    file: null
+    background: ''
+    bold: false
+    underline: false
+    multiple: false
+    icon: fa:upload
+  name: file_loader_1
+  layout_properties: {slot: default}
+  event_bindings: {change: file_loader_1_change}
+custom_component: true
