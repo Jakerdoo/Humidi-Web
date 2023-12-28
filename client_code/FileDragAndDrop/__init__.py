@@ -37,4 +37,5 @@ class FileDragAndDrop(FileDragAndDropTemplate):
     
   def file_uploaded(self, file):
     print(file.name)
+    fili = self.file_loader_1.file
     anvil.server.call('func1')
