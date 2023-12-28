@@ -50,3 +50,4 @@ components:
   layout_properties: {slot: default}
   event_bindings: {change: file_loader_1_change}
 custom_component: true
+is_package: true
