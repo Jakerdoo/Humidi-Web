@@ -4,6 +4,9 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
+- source: /runtime/services/google.yml
+  client_config: {}
+  server_config: {}
 package_name: DragandDropFiles
 allow_embedding: false
 name: Clone of Drag and Drop Files updated (2)
@@ -15,7 +18,7 @@ runtime_options:
 startup_form: Form1
 db_schema:
   table_1:
-    client: none
+    client: full
     server: full
     columns:
     - name: Column1
