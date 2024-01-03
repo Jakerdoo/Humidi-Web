@@ -31,8 +31,6 @@ class FileDragAndDrop(FileDragAndDropTemplate):
     self.file_uploaded(dropped_file)
 
   def file_loader_1_change(self, file, **event_args):
-    """This method is called when a new file is loaded into this FileLoader"""
-    print(file.name)
-    file_list = self.file_loader_1.file
-    server_response = anvil.server.call('access_files', file, file_list)
+    files_list = self.file_loader_1.files
+    server_response = anvil.server.call('access_files', file, files_list)
   
