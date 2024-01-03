@@ -1,7 +1,5 @@
 from ._anvil_designer import FileDragAndDropTemplate
 from anvil import *
-import anvil.google.auth, anvil.google.drive
-from anvil.google.drive import app_files
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -34,11 +32,7 @@ class FileDragAndDrop(FileDragAndDropTemplate):
 
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    self.file_uploaded(file)
-    app_tables.my_files.add_row(name=file.name, media_obj=file)
-    
-  def file_uploaded(self, file):
     print(file.name)
-    fili = self.file_loader_1.file
-    app_tables.table_1.add_row(Column1=file)
-    anvil.server.call('func1')
+    file_list = self.file_loader_1.file
+    server_response = anvil.server.call('access_files', file, file_list)
+  

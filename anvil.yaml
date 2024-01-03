@@ -4,12 +4,6 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
-- source: /runtime/services/google.yml
-  client_config: {}
-  server_config: {}
-- source: /runtime/services/anvil/files.yml
-  client_config: {}
-  server_config: {file_table: files}
 package_name: DragandDropFiles
 allow_embedding: false
 name: Clone of Drag and Drop Files updated (2)
@@ -28,4 +22,5 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: media
     title: Table 1
+uplink_visible: null
 renamed: true
