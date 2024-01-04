@@ -22,5 +22,6 @@ def access_files(file, files_list):
   with open (file_out, 'wb') as f:
     midi.writeFile(f)
   print("Done. Exiting!")
+  anvil.media.download(Untitled.mid)
 
 
