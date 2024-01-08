@@ -10,10 +10,10 @@ from sound_to_midi.monophonic import wave_to_midi
 
 
 @anvil.server.callable
-def access_files(file, files_list):
+def access_files(file):
 
 
-  file_in = (file)
+  file_in = file
   file_out = 'Untitled.mid'
   y, sr = librosa.load(file_in, sr=None)
   print("Audio file loaded!")

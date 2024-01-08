@@ -10,7 +10,7 @@ name: Clone of Drag and Drop Files updated (2)
 runtime_options:
   version: 2
   server_version: python2-full
-  client_version: '2'
+  client_version: '3'
   server_spec: {base: python310-machine-learning}
 startup_form: Form1
 db_schema:
