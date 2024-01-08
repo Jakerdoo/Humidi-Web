@@ -31,5 +31,7 @@ class FileDragAndDrop(FileDragAndDropTemplate):
     self.file_uploaded(dropped_file)
 
   def file_loader_1_change(self, file, **event_args):
-    server_response = anvil.server.call('access_files', file)
+    fili = file.url
+    print(fili)
+    server_response = anvil.server.call('access_files', file, fili)
   
